@@ -7,7 +7,7 @@ const moecounter = require('../src/index.js');
 			length: 10,
 			theme: 'default',
 			pixelated: true,
-			svg: false
+			svg: false,
 		});
 
 		console.log(data);

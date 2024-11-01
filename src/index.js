@@ -14,7 +14,7 @@ const httpsGet = async url => {
 	try {
 		const res = await fetch(url, {
 			method: 'GET',
-			headers: { 'User-Agent': USERAGENT }
+			headers: { 'User-Agent': USERAGENT },
 		});
 
 		if (!res.ok) {
