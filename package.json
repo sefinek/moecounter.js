@@ -46,7 +46,7 @@
   "license": "MIT",
   "author": "Sefinek <contact@sefinek.net> (https://sefinek.net)",
   "main": "src/index.js",
-  "typings": "index.d.ts",
+  "types": "index.d.ts",
   "scripts": {
     "build": "webpack --config webpack.config.js",
     "test": "node examples/localDb.js && node examples/remoteDb.js",
