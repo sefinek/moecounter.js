@@ -1,6 +1,6 @@
 const API_URL = 'https://api.sefinek.net/api/v2/moecounter';
 const VERSION = '1.0.8';
-const USERAGENT = `moecounter.js/${VERSION} (+https://github.com/sefinek24/moecounter.js)`;
+const USERAGENT = `moecounter.js/${VERSION} (+https://github.com/sefinek/moecounter.js)`;
 
 const constructUrl = (baseUrl, params) => {
 	const queryString = Object.entries(params)
