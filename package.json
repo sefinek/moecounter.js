@@ -49,8 +49,8 @@
   "types": "index.d.ts",
   "scripts": {
     "build": "webpack --config webpack.config.js",
-    "test": "node examples/localDb.js && node examples/remoteDb.js",
-    "up": "ncu -u && npm install && npm update && npm audit fix"
+    "m": "ncu -u && npm install && npm update",
+    "test": "node examples/localDb.js && node examples/remoteDb.js"
   },
   "devDependencies": {
     "@eslint/js": "^9.13.0",
