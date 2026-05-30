@@ -53,5 +53,5 @@ export default [
 			'wrap-regex': 'warn',
 			'yoda': 'error',
 		},
-	}
+	},
 ];
