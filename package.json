@@ -69,6 +69,7 @@
   ],
   "scripts": {
     "build": "webpack --config webpack.config.js",
+    "lint": "eslint .",
     "m": "ncu -u && npm install && npm update",
     "test": "jest"
   },
