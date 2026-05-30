@@ -4,7 +4,7 @@ const API_URL = 'https://api.sefinek.net/api/v2/moecounter';
 const MOCK_SVG = '<svg xmlns="http://www.w3.org/2000/svg"><text>mock</text></svg>';
 
 const mockFetch = (status = 200, body = MOCK_SVG) => {
-	global.fetch = jest.fn().mockResolvedValue({
+	jest.spyOn(globalThis, 'fetch').mockResolvedValue({
 		ok: status >= 200 && status < 300,
 		status,
 		statusText: status === 200 ? 'OK' : 'Error',
@@ -25,11 +25,11 @@ describe('version', () => {
 
 describe('local()', () => {
 	it('returns url without fetch when svg is false', async () => {
-		global.fetch = jest.fn();
+		const spy = jest.spyOn(globalThis, 'fetch');
 
 		const result = await moecounter.local({ number: 42, svg: false });
 
-		expect(global.fetch).not.toHaveBeenCalled();
+		expect(spy).not.toHaveBeenCalled();
 		expect(result.url).toContain(API_URL);
 		expect(result.svg).toBeUndefined();
 	});
