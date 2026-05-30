@@ -48,7 +48,7 @@
   "type": "commonjs",
   "exports": {
     ".": {
-      "types": "./index.d.ts",
+      "types": "./src/index.d.ts",
       "default": "./src/index.js"
     }
   },
@@ -60,7 +60,6 @@
   "files": [
     "dist",
     "src",
-    "src/index.d.ts",
     "LICENSE",
     "README.md"
   ],
@@ -79,8 +78,5 @@
   },
   "engines": {
     "node": ">=18.0.0"
-  },
-  "allowScripts": {
-    "unrs-resolver@1.12.2": true
   }
 }
