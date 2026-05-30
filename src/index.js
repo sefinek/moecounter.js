@@ -1,5 +1,5 @@
 const API_URL = 'https://api.sefinek.net/api/v2/moecounter';
-const VERSION = '1.0.13';
+const VERSION = '1.0.14';
 const USERAGENT = `moecounter.js/${VERSION} (+https://github.com/sefinek/moecounter.js)`;
 
 const constructUrl = (baseUrl, params) => {
@@ -11,20 +11,14 @@ const constructUrl = (baseUrl, params) => {
 };
 
 const httpsGet = async url => {
-	try {
-		const res = await fetch(url, {
-			method: 'GET',
-			headers: { 'User-Agent': USERAGENT },
-		});
+	const res = await fetch(url, {
+		method: 'GET',
+		headers: { 'User-Agent': USERAGENT },
+	});
 
-		if (!res.ok) {
-			throw new Error(`Request failed. Status code: ${res.status} (${res.statusText})`);
-		}
+	if (!res.ok) throw new Error(`Request failed. Status code: ${res.status} (${res.statusText})`);
 
-		return res.text();
-	} catch (err) {
-		console.error(err);
-	}
+	return res.text();
 };
 
 const fetchSvgData = async (baseUrl, queryParams) => {
@@ -35,7 +29,7 @@ const fetchSvgData = async (baseUrl, queryParams) => {
 	return { url: fullUrl, svg };
 };
 
-const local = async options => fetchSvgData(API_URL, { number: 0, ...options });
+const local = async options => fetchSvgData(API_URL, options);
 const remote = async ({ name: counterName, ...restOptions }) => fetchSvgData(`${API_URL}/@${counterName}`, restOptions);
 
 module.exports = { local, remote, version: VERSION };

@@ -1,6 +1,6 @@
 {
   "name": "moecounter.js",
-  "version": "1.0.13",
+  "version": "1.0.14",
   "description": "The most effective and efficient MoeCounters for your projects, designed to display a wide range of statistics for your website and more!",
   "keywords": [
     "anime",
@@ -35,7 +35,7 @@
     "neko-girl",
     "neko-girls"
   ],
-  "homepage": "https://sefinek.net/npm/moecounter.js/demo",
+  "homepage": "https://sefinek.net/projects/moecounter.js",
   "bugs": {
     "url": "https://github.com/sefinek/moecounter.js/issues"
   },
@@ -45,17 +45,42 @@
   },
   "license": "MIT",
   "author": "Sefinek <contact@sefinek.net> (https://sefinek.net)",
+  "type": "commonjs",
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "default": "./src/index.js"
+    }
+  },
   "main": "src/index.js",
   "types": "index.d.ts",
+  "directories": {
+    "example": "examples"
+  },
+  "files": [
+    "dist",
+    "src",
+    "index.d.ts",
+    "LICENSE",
+    "README.md"
+  ],
   "scripts": {
     "build": "webpack --config webpack.config.js",
     "m": "ncu -u && npm install && npm update",
-    "test": "node examples/localDb.js && node examples/remoteDb.js"
+    "test": "jest"
   },
   "devDependencies": {
-    "@eslint/js": "^9.13.0",
-    "globals": "^15.11.0",
-    "webpack": "^5.96.0",
-    "webpack-cli": "^5.1.4"
+    "@eslint/js": "^10.0.1",
+    "@types/jest": "^30.0.0",
+    "globals": "^17.6.0",
+    "jest": "^30.4.2",
+    "webpack": "^5.107.2",
+    "webpack-cli": "^7.0.3"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "allowScripts": {
+    "unrs-resolver@1.12.2": true
   }
 }

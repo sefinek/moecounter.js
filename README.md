@@ -27,7 +27,7 @@ npm install moecounter.js
 ```
 
 ## 🌍 Demo
-https://sefinek.net/npm/moecounter.js/demo
+https://sefinek.net/projects/moecounter.js
 
 
 ## 😸 Counters
@@ -119,6 +119,4 @@ If you have any questions or need help, feel free to reach out to me via [email]
 
 
 ## 🔑 License
-This module is provided under the `MIT License`. See the [LICENSE](LICENSE) file for more details.
-
-Copyright 2024 © by [Sefinek](https://sefinek.net). All Rights Reserved.
+Copyright © [Sefinek](https://sefinek.net). Licensed under the [MIT License](LICENSE).

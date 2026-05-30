@@ -1,107 +1,123 @@
-declare module 'moecounter.js' {
-    export interface SvgResult {
-        /**
-         * The URL to the generated image of the counter.
-         * @example `https://api.sefinek.net/api/v2/moecounter?number=0123456789&length=10&theme=default`
-         */
-        url: string;
-
-        /**
-         * The SVG code of the generated counter.
-         */
-        svg?: string;
-    }
-
-
-    export interface LocalDbOptions {
-        /**
-         * The number to be displayed on the counter. Required.
-         * @default 1234567890
-         */
-        number: number;
-
-        /**
-         * The number of `moe characters` on the counter. If the digit exceeds a certain size, the character limit will not apply. Optional.
-         * @default 10
-         */
-        length?: number;
-
-        /**
-         * The graphic theme of the counter (optional). Allows customization of the counter's appearance to match the style of the page.
-         * @default `default`
-         */
-        theme?: string;
-
-        /**
-         * Whether the graphic should be pixelated (optional). Allows a choice between smoothed and pixelated graphics. The recommended value is true.
-         * @default true
-         */
-        pixelated?: boolean;
-
-        /**
-         * Should the module retrieve the moe counter in SVG format? Carefully evaluate whether this is necessary for your application/project. If not, this option should be set to false. Enabling this feature by setting it to true can negatively impact performance due to the associated server request.
-         * @default false
-         */
-        svg?: boolean;
-    }
-
-    /**
-     * An asynchronous function generating a Moe counter, intended for use with a local database. Enables the user to store numbers in their database.
-     * @example
-     * await moecounter.local({
-     *     number: 1234567890,
-     *     length: 10,
-     *     theme: 'default',
-     *     pixelated: true
-     * });
-     * @param options Counter options, including the number to be displayed.
-     * @returns A Promise object that resolves to an SvgResult object containing the SVG code and the URL of the generated counter image.
-     */
-    export function local(options: LocalDbOptions): Promise<SvgResult>;
+export type Theme =
+	| '3d-num'
+	| 'ai-1'
+	| 'booru-helltaker'
+	| 'booru-huggboo'
+	| 'booru-jaypee'
+	| 'booru-koe'
+	| 'booru-lisu'
+	| 'booru-mof'
+	| 'booru-nandroid'
+	| 'booru-r6gdrawfriends'
+	| 'booru-smtg'
+	| 'booru-snyde'
+	| 'booru-the-collection'
+	| 'booru-touhoulat'
+	| 'booru-townofgravityfalls'
+	| 'booru-twifanartsfw'
+	| 'booru-ve'
+	| 'booru-vivi'
+	| 'booru-vp'
+	| 'booru-yuyuyui'
+	| 'capoo-1'
+	| 'capoo-2'
+	| 'default'
+	| 'default-big'
+	| 'default2'
+	| 'default3'
+	| 'default3-big'
+	| 'default4'
+	| 'default5-green'
+	| 'e621'
+	| 'food'
+	| 'kasuterura-1'
+	| 'kasuterura-2'
+	| 'kasuterura-3'
+	| 'kasuterura-4'
+	| 'love-and-deepspace'
+	| 'miku'
+	| 'minecraft'
+	| 'morden-num'
+	| 'nixietube-1'
+	| 'nixietube-2'
+	| 'normal-1'
+	| 'normal-2'
+	| 'shimmie2'
+	| 'sketch-1'
+	| 'sketch-2'
+	| 'yousa-ling';
 
 
-    export interface RemoteDbOptions {
-        /**
-         * The unique name of the counter.
-         */
-        name: string;
+export interface SvgResult {
+	/** The URL to the generated counter image. */
+	url: string;
 
-        /**
-         * The number of `moe characters` on the counter. If the digit exceeds a certain size, the character limit will not apply. Optional.
-         * @default 10
-         */
-        length?: number;
-
-        /**
-         * The number of `moe characters` on the counter. If the digit exceeds a certain size, the character limit will not apply. Optional.
-         * @default `default`
-         */
-        theme?: string;
-
-        /**
-         * Should the module retrieve the moe counter in SVG format? Carefully evaluate whether this is necessary for your application/project. If not, this option should be set to false. Enabling this feature by setting it to true can negatively impact performance due to the associated server request.
-         * @default false
-         */
-        svg?: boolean;
-    }
-
-    /**
-     * An asynchronous function generating a Moe counter, using a remote database to manage counters. Numbers are stored in an external database.
-     * @example
-     * await moecounter.remote({
-     *     name: 'test-12345',
-     *     length: 10,
-     *     theme: 'default',
-     *     pixelated: true
-     * });
-     * @param options Options, including the unique name of the counter.
-     * @returns A Promise object that resolves to an SvgResult object containing the SVG code and the URL of the generated counter image. To increment the number in the database, the user must visit the generated link.
-     */
-    export function remote(options: RemoteDbOptions): Promise<SvgResult>;
-
-
-    /**
-     * The version of the `moecounter.js` module.
-     */
-    export const version: string;
+	/** The SVG code of the generated counter. */
+	svg?: string;
 }
+
+
+export interface LocalDbOptions {
+	/** The number to display on the counter. */
+	number: number;
+
+	/** Number of moe characters on the counter. @default 10 */
+	length?: number;
+
+	/** Graphic theme of the counter. @default 'default' */
+	theme?: Theme | (string & {});
+
+	/** Whether the graphic should be pixelated. @default true */
+	pixelated?: boolean;
+
+	/** Fetch the counter as SVG. Impacts performance due to an extra server request. @default false */
+	svg?: boolean;
+}
+
+/**
+ * Generates a Moe counter using a locally managed number.
+ * @example
+ * const result = await moecounter.local({
+ *     number: 1234567890,
+ *     length: 10,
+ *     theme: 'default',
+ *     pixelated: true,
+ *     svg: false,
+ * });
+ */
+export function local(options: LocalDbOptions): Promise<SvgResult>;
+
+
+export interface RemoteDbOptions {
+	/** The unique name of the counter. */
+	name: string;
+
+	/** Number of moe characters on the counter. @default 10 */
+	length?: number;
+
+	/** Graphic theme of the counter. @default 'default' */
+	theme?: Theme | (string & {});
+
+	/** Whether the graphic should be pixelated. @default true */
+	pixelated?: boolean;
+
+	/** Fetch the counter as SVG. Impacts performance due to an extra server request. @default false */
+	svg?: boolean;
+}
+
+/**
+ * Generates a Moe counter using a remote database. The counter increments when the URL is visited.
+ * @example
+ * const result = await moecounter.remote({
+ *     name: 'my-counter',
+ *     length: 10,
+ *     theme: 'default',
+ *     pixelated: true,
+ *     svg: false,
+ * });
+ */
+export function remote(options: RemoteDbOptions): Promise<SvgResult>;
+
+
+/** The version of the moecounter.js module. */
+export const version: string;
