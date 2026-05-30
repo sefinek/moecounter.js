@@ -43,6 +43,10 @@
     "type": "git",
     "url": "git+https://github.com/sefinek/moecounter.js.git"
   },
+  "funding": {
+    "type": "individual",
+    "url": "https://sefinek.net/donate"
+  },
   "license": "MIT",
   "author": "Sefinek <contact@sefinek.net> (https://sefinek.net)",
   "type": "commonjs",
