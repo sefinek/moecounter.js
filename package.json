@@ -53,14 +53,14 @@
     }
   },
   "main": "src/index.js",
-  "types": "index.d.ts",
+  "types": "src/index.d.ts",
   "directories": {
     "example": "examples"
   },
   "files": [
     "dist",
     "src",
-    "index.d.ts",
+    "src/index.d.ts",
     "LICENSE",
     "README.md"
   ],
