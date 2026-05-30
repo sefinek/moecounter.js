@@ -5,7 +5,7 @@ module.exports = {
 	target: 'web',
 	mode: 'production',
 	output: {
-		path: path.resolve(__dirname, 'dist', 'browser'),
+		path: path.resolve(__dirname, 'dist'),
 		filename: 'moecounter.min.js',
 		globalObject: 'this',
 		library: {
