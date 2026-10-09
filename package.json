@@ -76,10 +76,10 @@
   "devDependencies": {
     "@eslint/js": "^10.0.1",
     "@types/jest": "^30.0.0",
-    "globals": "^17.11.0",
-    "jest": "^30.4.2",
-    "webpack": "^5.109.2",
-    "webpack-cli": "^7.2.2"
+    "globals": "^17.13.0",
+    "jest": "^30.5.2",
+    "webpack": "^5.111.1",
+    "webpack-cli": "^7.2.3"
   },
   "engines": {
     "node": ">=18.0.0"
